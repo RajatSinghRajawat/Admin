@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Additional responsive utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Mobile-friendly scrollbar */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions for mobile */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Better touch targets for mobile */
+button, a, input, select, textarea {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Mobile-friendly focus states */
+button:focus, a:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Responsive table improvements */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  
+  th, td {
+    padding: 8px 4px;
+  }
+}
+
+/* Mobile sidebar improvements */
+@media (max-width: 1024px) {
+  .sidebar-mobile {
+    backdrop-filter: blur(10px);
+    background-color: rgba(247, 248, 250, 0.95);
+  }
+}
