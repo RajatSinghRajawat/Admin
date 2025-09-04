@@ -50,7 +50,7 @@ const Leads = () => {
       setError(null);
       try {
         const token = localStorage.getItem('adminToken');
-        const response = await fetch('http://localhost:5000/api/leads', {
+        const response = await fetch('https://backend.readymadewall.in/api/leads', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -79,7 +79,7 @@ const Leads = () => {
   const refreshLeads = async () => {
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch('http://localhost:5000/api/leads', {
+      const response = await fetch('https://backend.readymadewall.in/api/leads', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (response.ok) {
@@ -159,7 +159,7 @@ const Leads = () => {
         timeline: createForm.timeline, // one of: immediate, 1-3months, 3-6months, 6-12months, above-1year
         // optional client fields not in schema are ignored by backend
       };
-      const response = await fetch('http://localhost:5000/api/leads', {
+      const response = await fetch('https://backend.readymadewall.in/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
         body: JSON.stringify(payload)
@@ -185,7 +185,7 @@ const Leads = () => {
     setDeleteLoadingId(lead._id || lead.id);
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/leads/${lead._id || lead.id}`, {
+      const response = await fetch(`https://backend.readymadewall.in/api/leads/${lead._id || lead.id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });

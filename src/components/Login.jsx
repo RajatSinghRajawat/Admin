@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from './logo.jpg';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Login = () => {
     setError('');
     setLoading(true);
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/auth/admin/login`, {
+      const res = await fetch('https://backend.readymadewall.in/api/auth/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -37,9 +38,9 @@ const Login = () => {
       <div className="w-full max-w-md bg-white shadow rounded-lg p-6">
         <div className="flex justify-center mb-6">
           <img 
-            src="https://indiawalls.in/wp-content/uploads/2024/09/Logo-Indiawalls.svg" 
+            src={logo}
             alt="Logo" 
-            className="h-10"
+            className="h-30 w-50 object-contain max-w-full"
           />
         </div>
         <h1 className="text-xl font-semibold text-gray-800 mb-4 text-center">Admin Login</h1>
