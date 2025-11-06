@@ -44,60 +44,60 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md bg-white shadow rounded-lg p-6">
-        <div className="flex justify-center mb-6">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-200 via-white to-blue-400 px-4">
+      <div className="w-full max-w-md bg-white/90 shadow-2xl rounded-2xl p-8 animate-fade-in-up backdrop-blur-lg border border-blue-100">
+        <div className="flex justify-center mb-8">
           <img
             src={logo}
             alt="Logo"
-            className="h-30 w-50 object-contain max-w-full"
+            className="h-20 w-40 object-contain rounded-lg shadow"
           />
         </div>
-        <h1 className="text-xl font-semibold text-gray-800 mb-4 text-center">Admin Login</h1>
+        <h1 className="text-2xl font-bold text-blue-800 mb-6 text-center drop-shadow-md tracking-wide">Admin Login</h1>
         {error && (
-          <div className="mb-4 text-sm text-red-600 bg-red-50 border border-red-200 rounded p-2">
+          <div className="mb-4 text-sm text-red-600 bg-red-50 border border-red-200 rounded p-2 animate-shake">
             {error}
           </div>
         )}
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-6 ">
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Email</label>
+            <label className="block text-sm font-medium text-blue-700 mb-2">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50/60 transition-all"
               placeholder="you@example.com"
+              autoComplete="username"
             />
           </div>
           <div>
-            <label className="block text-sm text-gray-700 mb-1">Password</label>
+            <label className="block text-sm font-medium text-blue-700 mb-2">Password</label>
             <div className="relative">
               <input
-                type={showPassword ? "text" : "password"}
+                type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10"
+                className="w-full border border-blue-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-blue-50/60 transition-all pr-12"
                 placeholder="••••••••"
+                autoComplete="current-password"
               />
               <span
-                className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                className="absolute inset-y-0 right-0 flex items-center pr-4 cursor-pointer select-none"
                 onClick={() => setShowPassword((prev) => !prev)}
                 tabIndex={0}
                 role="button"
                 aria-label={showPassword ? "Hide password" : "Show password"}
               >
                 {showPassword ? (
-                  // Eye open SVG
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400 hover:text-blue-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 ) : (
-                  // Eye closed SVG
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400 hover:text-blue-600 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.477 0-8.268-2.943-9.542-7a9.956 9.956 0 012.223-3.592m3.31-2.252A9.956 9.956 0 0112 5c4.477 0 8.268 2.943 9.542 7a9.973 9.973 0 01-4.043 5.306M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3l18 18" />
                   </svg>
@@ -108,9 +108,19 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700 disabled:opacity-60"
+            className="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg px-4 py-3 font-semibold shadow hover:from-blue-600 hover:to-blue-800 transition-all disabled:opacity-60 mt-2 animate-pulseShort"
           >
-            {loading ? 'Signing in...' : 'Sign in'}
+            {loading ? (
+              <span className="flex items-center justify-center gap-2">
+                <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                  <circle className="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
+                  <path className="opacity-80" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                </svg>
+                Signing in...
+              </span>
+            ) : (
+              'Sign in'
+            )}
           </button>
         </form>
       </div>

@@ -42,7 +42,10 @@ const Sidebar = ({ onClose }) => {
   };
 
   return (
-    <aside className="w-64 lg:w-64  border-r border-gray-200 flex flex-col py-4 px-2 h-screen overflow-hidden sidebar-mobile">
+    <aside
+      className="w-64 lg:w-64 border-r border-gray-200 flex flex-col py-4 px-2 h-screen overflow-y-scroll scrollbar-hide sidebar-mobile"
+      style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+    >
       {/* Mobile close button */}
       <div className="lg:hidden flex items-center justify-between mb-6 px-2">
         <div className="flex items-center">
