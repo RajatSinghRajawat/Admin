@@ -38,14 +38,14 @@ const Login = () => {
       localStorage.setItem('adminUser', JSON.stringify(data.user));
       navigate('/');
     } catch (err) {
-      setError("Something went wrong. Please try again.");
+      setError("Something went wrong. Please try again.",err);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-200 via-white to-blue-400 px-4">
+    <div className="min-h-screen flex items-center justify-center  px-4">
       <div className="w-full max-w-md bg-white/90 shadow-2xl rounded-2xl p-8 animate-fade-in-up backdrop-blur-lg border border-blue-100">
         <div className="flex justify-center mb-8">
           <img
