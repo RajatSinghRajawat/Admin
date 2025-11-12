@@ -16,6 +16,8 @@ import {
 } from 'react-icons/fi';
 import toast, { Toaster } from 'react-hot-toast';
 
+//get the data
+
 const Blogs = () => {
   const ASSET_BASE = 'http://93.127.166.30:5000/';
   const [searchTerm, setSearchTerm] = useState('');
