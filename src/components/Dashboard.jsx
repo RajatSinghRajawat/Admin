@@ -23,7 +23,7 @@ const Dashboard = () => {
     const fetchCounts = async () => {
       try {
         const token = localStorage.getItem('adminToken') || localStorage.getItem('token');
-        const base = import.meta.env.VITE_API_URL || 'http://93.127.166.30:5000';
+        const base = import.meta.env.VITE_API_URL || 'https://api.readymadewall.in';
         const res = await fetch(`${base}/api/stats/summary`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -37,7 +37,7 @@ const Dashboard = () => {
     const fetchRecentLeads = async () => {
       try {
         const token = localStorage.getItem('adminToken') || localStorage.getItem('token');
-        const base = import.meta.env.VITE_API_URL || 'http://93.127.166.30:5000';
+        const base = import.meta.env.VITE_API_URL || 'https://api.readymadewall.in';
         const res = await fetch(`${base}/api/leads?page=1&limit=6`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });

@@ -38,7 +38,7 @@ const Messages = () => {
       setError(null);
       try {
         const adminToken = localStorage.getItem('adminToken') || localStorage.getItem('token');
-        const response = await fetch('http://93.127.166.30:5000/api/inquiry', {
+        const response = await fetch('https://api.readymadewall.in/api/inquiry', {
           headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
         });
         if (!response.ok) {
@@ -78,7 +78,7 @@ const Messages = () => {
   const updateInquiryStatus = async (inquiryId, newStatus) => {
     try {
       const adminToken = localStorage.getItem('adminToken') || localStorage.getItem('token');
-      const response = await fetch(`http://93.127.166.30:5000/api/inquiry/${inquiryId}/status`, {
+      const response = await fetch(`https://api.readymadewall.in/api/inquiry/${inquiryId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ const Messages = () => {
     
     try {
       const adminToken = localStorage.getItem('adminToken') || localStorage.getItem('token');
-      const response = await fetch(`http://93.127.166.30:5000/api/inquiry/${inquiryId}`, {
+      const response = await fetch(`https://api.readymadewall.in/api/inquiry/${inquiryId}`, {
         method: 'DELETE',
         headers: adminToken ? { 'Authorization': `Bearer ${adminToken}` } : {}
       });
@@ -536,7 +536,7 @@ const Messages = () => {
                 setCreateLoading(true);
                 try {
                   const adminToken = localStorage.getItem('adminToken') || localStorage.getItem('token');
-                  const res = await fetch('http://93.127.166.30:5000/api/inquiry/create', {
+                  const res = await fetch('https://api.readymadewall.in/api/inquiry/create', {
                     method: 'POST',
                     headers: { 
                       'Content-Type': 'application/json',

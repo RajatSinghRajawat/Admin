@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { FiSearch, FiUser, FiMail, FiShield, FiToggleLeft, FiToggleRight } from 'react-icons/fi';
 
-const API_URL = 'http://93.127.166.30:5000/api/auth/users'; // Adjust if your backend IP changes
+const API_URL = 'https://api.readymadewall.in/api/auth/users'; // Adjust if your backend IP changes
 
 const Users = () => {
   // State

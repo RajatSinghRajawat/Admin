@@ -19,7 +19,7 @@ import {
 } from 'react-icons/fi';
 
 const Products = () => {
-  const ASSET_BASE = 'http://93.127.166.30:5000/';
+  const ASSET_BASE = 'https://api.readymadewall.in/';
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [viewMode, setViewMode] = useState('grid');
@@ -182,7 +182,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://93.127.166.30:5000/api/products');
+        const response = await fetch('https://api.readymadewall.in/api/products');
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
@@ -404,7 +404,7 @@ const Products = () => {
         redirect: "follow"
       };
 
-      const response = await fetch("http://93.127.166.30:5000/api/products/createProduct", requestOptions);
+      const response = await fetch("https://api.readymadewall.in/api/products/createProduct", requestOptions);
       const result = await response.json();
       
       if (response.ok) {
@@ -587,7 +587,7 @@ const Products = () => {
     setUpdateLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://93.127.166.30:5000/api/products/${selectedProduct._id || selectedProduct.id}`, {
+      const response = await fetch(`https://api.readymadewall.in/api/products/${selectedProduct._id || selectedProduct.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -651,7 +651,7 @@ const Products = () => {
     setDeleteLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`http://93.127.166.30:5000/api/products/${productToDelete._id || productToDelete.id}`, {
+      const response = await fetch(`https://api.readymadewall.in/api/products/${productToDelete._id || productToDelete.id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

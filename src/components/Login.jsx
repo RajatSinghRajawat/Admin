@@ -17,7 +17,7 @@ const Login = () => {
     setError('');
     console.log('Login attempt:', { email, password }); // Log credentials (for debugging only)
     try {
-      const response = await fetch("http://93.127.166.30:5000/api/admin/login", {
+      const response = await fetch("https://api.readymadewall.in/api/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

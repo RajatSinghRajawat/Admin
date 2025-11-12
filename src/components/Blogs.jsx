@@ -19,7 +19,7 @@ import toast, { Toaster } from 'react-hot-toast';
 //get the data
 
 const Blogs = () => {
-  const ASSET_BASE = 'http://93.127.166.30:5000/';
+  const ASSET_BASE = 'https://api.readymadewall.in/';
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [blogs, setBlogs] = useState([]);
@@ -102,7 +102,7 @@ const Blogs = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch('http://93.127.166.30:5000/api/blogs');
+        const response = await fetch('https://api.readymadewall.in/api/blogs');
         if (!response.ok) {
           throw new Error('Failed to fetch blogs');
         }
@@ -198,7 +198,7 @@ const Blogs = () => {
       (createFormData.images || []).forEach((file) => formData.append('image', file));
 
       const token = localStorage.getItem('token');
-      const response = await fetch('http://93.127.166.30:5000/api/blogs/create', {
+      const response = await fetch('https://api.readymadewall.in/api/blogs/create', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -417,7 +417,7 @@ const Blogs = () => {
                            setViewLoading(true);
                            setShowViewModal(true);
                            setViewImageIndex(0);
-                           const res = await fetch(`http://93.127.166.30:5000/api/blogs/${blog._id || blog.id}`);
+                           const res = await fetch(`https://api.readymadewall.in/api/blogs/${blog._id || blog.id}`);
                            const data = await res.json();
                            setViewBlog(data.blog || blog);
                          } catch (e) {
@@ -688,7 +688,7 @@ const Blogs = () => {
                   formData.append('author', editFormData.author);
                   (editFormData.images || []).forEach((file) => formData.append('image', file));
                   const token = localStorage.getItem('token');
-                  const res = await fetch(`http://93.127.166.30:5000/api/blogs/update/${editFormData._id}`, {
+                  const res = await fetch(`https://api.readymadewall.in/api/blogs/update/${editFormData._id}`, {
                     method: 'PUT',
                     headers: { 'Authorization': `Bearer ${token}` },
                     body: formData
@@ -806,7 +806,7 @@ const Blogs = () => {
                 onClick={async () => {
                   try {
                     const token = localStorage.getItem('token');
-                    const res = await fetch(`http://93.127.166.30:5000/api/blogs/delete/${blogToDelete._id}`, {
+                    const res = await fetch(`https://api.readymadewall.in/api/blogs/delete/${blogToDelete._id}`, {
                       method: 'DELETE',
                       headers: { 'Authorization': `Bearer ${token}` }
                     });
